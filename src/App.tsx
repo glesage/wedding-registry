@@ -21,7 +21,7 @@ const { data: contributions, error: contributionsError } = await supabase
 
 const gotError = giftsError || contributionsError;
 const contributeButtonText = "Contribute";
-const contributionUrl = "https://buy.stripe.com/5kAdRG1aI94i9qwdQQ";
+const contributionUrl = "https://buy.stripe.com/test_5kA3d1bZbdeFfbGdQQ";
 
 function App() {
 	return (
