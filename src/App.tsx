@@ -1,35 +1,79 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "./App.css";
+
+import Grid from "@mui/material/Grid2";
+import Typography from "@mui/material/Typography";
+
+import GiftCard from "./GiftCard";
+
+const contributeButtonText = "Contribute";
+const contributionUrl = "https://buy.stripe.com/5kAdRG1aI94i9qwdQQ";
 
 function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+	return (
+		<>
+			<div>
+				<Typography variant="h3" padding={4}>
+					Wedding registry
+				</Typography>
+			</div>
+			<Grid container spacing={4} sx={{ justifyContent: "center" }}>
+				<GiftCard
+					imageUrl="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqgsXNFBXzJZpIBidxK0IIIqhhPEdl2knOhg&s"
+					name="Coffee machine"
+					description="The best coffee machine ever"
+					price={100}
+					amountRaised={50}
+					actionText={contributeButtonText}
+					actionUrl={contributionUrl}
+				/>
+				<GiftCard
+					imageUrl="https://nemodivingcenter.com/wp-content/uploads/2023/02/scuba-diving-couple-jpg.webp"
+					name="Scuba diving"
+					description="Scuba diving is a great way to explore the underwater world and see the beauty of the ocean."
+					price={500}
+					amountRaised={400}
+					actionText={contributeButtonText}
+					actionUrl={contributionUrl}
+				/>
+				<GiftCard
+					imageUrl="https://nemodivingcenter.com/wp-content/uploads/2023/02/scuba-diving-couple-jpg.webp"
+					name="Scuba diving"
+					description="Scuba diving is a great way to explore the underwater world and see the beauty of the ocean."
+					price={500}
+					amountRaised={400}
+					actionText={contributeButtonText}
+					actionUrl={contributionUrl}
+				/>
+				<GiftCard
+					imageUrl="https://nemodivingcenter.com/wp-content/uploads/2023/02/scuba-diving-couple-jpg.webp"
+					name="Scuba diving"
+					description="Scuba diving is a great way to explore the underwater world and see the beauty of the ocean."
+					price={500}
+					amountRaised={400}
+					actionText={contributeButtonText}
+					actionUrl={contributionUrl}
+				/>
+				<GiftCard
+					imageUrl="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqgsXNFBXzJZpIBidxK0IIIqhhPEdl2knOhg&s"
+					name="Coffee machine"
+					description="The best coffee machine ever"
+					price={100}
+					amountRaised={50}
+					actionText={contributeButtonText}
+					actionUrl={contributionUrl}
+				/>
+				<GiftCard
+					imageUrl="https://nemodivingcenter.com/wp-content/uploads/2023/02/scuba-diving-couple-jpg.webp"
+					name="Scuba diving"
+					description="Scuba diving is a great way to explore the underwater world and see the beauty of the ocean."
+					price={500}
+					amountRaised={400}
+					actionText={contributeButtonText}
+					actionUrl={contributionUrl}
+				/>
+			</Grid>
+		</>
+	);
 }
 
-export default App
+export default App;
