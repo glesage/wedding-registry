@@ -46,7 +46,7 @@ const GiftCard: React.FC<GiftCardProps> = ({
 				</Typography>
 			</CardContent>
 			<CardActions sx={{ justifyContent: "center" }}>
-				<Button href={`${actionUrl}?giftId=${giftId}`} size="small">
+				<Button href={`${actionUrl}?utm_content=${giftId}`} size="small">
 					{actionText}
 				</Button>
 			</CardActions>
