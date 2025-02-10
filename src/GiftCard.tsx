@@ -8,27 +8,29 @@ import Typography from "@mui/material/Typography";
 import ProgressBar from "./ProgressBar";
 
 interface GiftCardProps {
+	giftId: number;
 	imageUrl: string;
 	name: string;
 	description: string;
 	price: number;
-	amountRaised: number;
+	progress: number;
 	actionText: string;
 	actionUrl: string;
 }
 
 const GiftCard: React.FC<GiftCardProps> = ({
+	giftId,
 	imageUrl,
 	name,
 	description,
 	price,
-	amountRaised,
+	progress,
 	actionText,
 	actionUrl,
 }) => {
-	const progress = Math.min((amountRaised / price) * 100, 100);
 	return (
 		<Card
+			id={giftId.toString()}
 			sx={{
 				width: 345,
 				display: "flex",
@@ -44,7 +46,7 @@ const GiftCard: React.FC<GiftCardProps> = ({
 				</Typography>
 			</CardContent>
 			<CardActions sx={{ justifyContent: "center" }}>
-				<Button href={actionUrl} size="small">
+				<Button href={`${actionUrl}?giftId=${giftId}`} size="small">
 					{actionText}
 				</Button>
 			</CardActions>
