@@ -25,7 +25,8 @@ const stripeId = Array.from(urlParams.entries()).find((param) => {
 if (stripeId) {
 	setTimeout(() => {
 		const url = new URL(window.location.href);
-		history.replaceState({}, "", url.origin);
+		url.searchParams.delete("stripe_id");
+		window.history.pushState(null, "", url.toString());
 	}, 0);
 }
 
