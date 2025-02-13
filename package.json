@@ -1,12 +1,11 @@
 {
-	"name": "Wedding registry",
+	"name": "wedding-registry",
 	"private": false,
 	"version": "0.0.0",
 	"type": "module",
 	"license": "MIT",
 	"homepage": "https://glesage.github.io/wedding-registry/",
 	"scripts": {
-		"predeploy": "yarn build",
 		"deploy": "gh-pages -d dist",
 		"dev": "vite",
 		"build": "tsc -b && vite build",
