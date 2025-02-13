@@ -40,4 +40,4 @@ policy = "oneshot"
 # Use these configurations to customize your Edge Function.
 [functions.get-gifts-and-contributions]
 enabled = true
-verify_jwt = true
+verify_jwt = false
