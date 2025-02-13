@@ -8,8 +8,6 @@ const stripe = new Stripe(Deno.env.get("STRIPE_API_KEY") as string, {
 });
 const cryptoProvider = Stripe.createSubtleCryptoProvider();
 
-console.log("Hello from Stripe Webhook!");
-
 Deno.serve(async (req) => {
 	let signature;
 	try {

@@ -37,7 +37,10 @@ file_size_limit = "50MiB"
 enabled = true
 policy = "oneshot"
 
-# Use these configurations to customize your Edge Function.
 [functions.get-gifts-and-contributions]
+enabled = true
+verify_jwt = false
+
+[functions.post-contribution]
 enabled = true
 verify_jwt = false
