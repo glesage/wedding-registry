@@ -12,8 +12,8 @@ const api =
 	"https://uydcurfxaixdhrljgwlj.supabase.co/functions/v1/get-gifts-and-contributions";
 
 type EdgeRes = {
-	gifts: Tables<"Gifts">;
-	contributions: Tables<"Contributions">;
+	gifts: Tables<"Gifts">[];
+	contributions: Tables<"Contributions">[];
 };
 
 const {
