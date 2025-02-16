@@ -14,35 +14,25 @@ export type Database = {
           amount: number
           created_at: string
           email: string
-          gift_id: number
           id: number
         }
         Insert: {
           amount: number
           created_at?: string
           email: string
-          gift_id: number
           id?: number
         }
         Update: {
           amount?: number
           created_at?: string
           email?: string
-          gift_id?: number
           id?: number
         }
-        Relationships: [
-          {
-            foreignKeyName: "Contribution_gift_id_fkey"
-            columns: ["gift_id"]
-            isOneToOne: false
-            referencedRelation: "Gifts"
-            referencedColumns: ["id"]
-          },
-        ]
+        Relationships: []
       }
       Gifts: {
         Row: {
+          bonus: boolean
           description: string
           id: number
           image_url: string
@@ -50,6 +40,7 @@ export type Database = {
           price: number
         }
         Insert: {
+          bonus?: boolean
           description: string
           id?: number
           image_url: string
@@ -57,6 +48,7 @@ export type Database = {
           price: number
         }
         Update: {
+          bonus?: boolean
           description?: string
           id?: number
           image_url?: string

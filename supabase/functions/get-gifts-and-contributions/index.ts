@@ -25,7 +25,7 @@ Deno.serve(async (req) => {
 		{ data: contributions, error: contributionsError },
 	] = await Promise.all([
 		client.from("Gifts").select("*"),
-		client.from("Contributions").select("amount, gift_id"),
+		client.from("Contributions").select("amount"),
 	]);
 	if (giftsError) return response(giftsError.message, 400);
 	if (contributionsError) return response(contributionsError.message, 400);

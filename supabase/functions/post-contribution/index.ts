@@ -38,7 +38,6 @@ Deno.serve(async (req) => {
 	await client.from("Contributions").insert({
 		amount: receivedEvent.data.object.amount_total / 100,
 		email: receivedEvent.data.object.customer_details.email,
-		gift_id: receivedEvent.data.object.success_url.split("utm_content=")[1],
 	});
 
 	return new Response(JSON.stringify({ ok: true }), { status: 200 });
