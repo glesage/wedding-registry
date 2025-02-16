@@ -12,9 +12,13 @@ import TimelineContent from "@mui/lab/TimelineContent";
 import TimelineDot from "@mui/lab/TimelineDot";
 
 import Button from "@mui/material/Button";
+import Box from "@mui/material/Box";
 
 import GiftCard from "./GiftCard";
 import { Tables } from "./database.types";
+
+const backgroundImage = "https://i.ibb.co/qMfzFtbP/gcm.jpg";
+const stripeFormUrl = "https://buy.stripe.com/test_5kA3d1bZbdeFfbGdQQ";
 
 const api =
 	"https://uydcurfxaixdhrljgwlj.supabase.co/functions/v1/get-gifts-and-contributions";
@@ -62,37 +66,41 @@ function App() {
 
 	return (
 		<>
-			<Typography variant="h3" padding={4}>
-				Liste de G&C
-			</Typography>
-			{stripeId && (
-				<Typography variant="h5" padding={4}>
-					Merci pour votre contribution 🎉
+			<Box
+				sx={{
+					backgroundImage: `url('${backgroundImage}')`,
+					backgroundSize: "cover",
+					height: "480px",
+					color: "white",
+				}}
+			>
+				<Typography variant="h3" padding={8}>
+					List de mariage de Clémence et Geoffroy
 				</Typography>
-			)}
-
+				{stripeId ? (
+					<Typography variant="h5" padding={4}>
+						Merci pour votre contribution 🎉
+					</Typography>
+				) : (
+					<Typography variant="h5" padding={4}>
+						Aider nous a faire un super voyage de noces au Vanuatu! Chaque étape
+						que nous attaingon nous permetra de faire quelques jours de plus.
+					</Typography>
+				)}
+			</Box>
 			{isLoading ? (
 				<div>Chargement du voyage...</div>
 			) : (
 				<>
-					{!stripeId && (
-						<>
-							<Typography variant="body1" padding={4}>
-								Aider nous a faire un super voyage de noces au Vanuatu! Chaque
-								étape que nous attaingon nous permetra de faire quelques jours
-								de plus.
-							</Typography>
-							<Button
-								variant="contained"
-								size="large"
-								href="https://buy.stripe.com/test_5kA3d1bZbdeFfbGdQQ"
-								fullWidth
-								sx={{ maxWidth: 400, margin: "auto" }}
-							>
-								Contribuer
-							</Button>
-						</>
-					)}
+					<Button
+						variant="contained"
+						size="large"
+						href={stripeFormUrl}
+						fullWidth
+						sx={{ maxWidth: 400, margin: "auto", marginTop: 4 }}
+					>
+						Contribuer
+					</Button>
 					<Timeline
 						sx={{
 							[`& .${timelineItemClasses.root}:before`]: {
