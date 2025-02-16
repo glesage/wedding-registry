@@ -83,10 +83,13 @@ function App() {
 								de plus.
 							</Typography>
 							<Button
+								variant="contained"
+								size="large"
 								href="https://buy.stripe.com/test_5kA3d1bZbdeFfbGdQQ"
-								size="small"
+								fullWidth
+								sx={{ maxWidth: 400, margin: "auto" }}
 							>
-								<Typography variant="h5">Contribuer</Typography>
+								Contribuer
 							</Button>
 						</>
 					)}
@@ -97,43 +100,63 @@ function App() {
 								padding: 0,
 							},
 							maxWidth: 800,
+							margin: "auto",
 						}}
 					>
-						{gifts?.map((gift, idx) => {
-							const previousGiftsTotal = gifts?.reduce((acc, curr, idx) => {
-								if (idx < idx) {
-									return acc + curr.price;
-								}
-								return acc;
-							}, 0);
-							const done = totalContributions > previousGiftsTotal + gift.price;
-							return (
-								<TimelineItem>
-									<TimelineSeparator>
-										<TimelineDot color={done ? "success" : "grey"} />
-										{idx < gifts.length - 1 && <TimelineConnector />}
-									</TimelineSeparator>
-									<TimelineContent sx={{ marginTop: 4, paddingLeft: 8 }}>
-										<GiftCard
-											giftId={gift.id}
-											imageUrl={gift.image_url}
-											name={gift.name}
-											description={gift.description}
-											price={gift.price}
-											progress={
-												done
-													? 1
-													: ((totalContributions - previousGiftsTotal) /
-															gift.price) *
-													  100
-											}
-											actionText="Contribuer"
-											actionUrl={`https://buy.stripe.com/test_5kA3d1bZbdeFfbGdQQ?utm_content=${gift.id}`}
-										/>
-									</TimelineContent>
-								</TimelineItem>
-							);
-						})}
+						{gifts
+							?.sort((a, b) => a.id - b.id)
+							.map((gift, idx) => {
+								const giftsTotalUpToIdx = gifts?.reduce((acc, curr, pIdx) => {
+									if (pIdx <= idx) {
+										return acc + curr.price;
+									}
+									return acc;
+								}, 0);
+								const done = totalContributions > giftsTotalUpToIdx;
+								const progress = done
+									? 100
+									: ((totalContributions - giftsTotalUpToIdx + gift.price) /
+											gift.price) *
+									  100;
+								return (
+									<>
+										{gift.bonus && (
+											<Typography
+												variant="h4"
+												sx={{ pt: 4, textAlign: "left" }}
+											>
+												Bonus
+											</Typography>
+										)}
+										<TimelineItem>
+											<TimelineSeparator>
+												<TimelineDot
+													color={progress > 0 ? "primary" : "grey"}
+												/>
+												<TimelineConnector
+													sx={{
+														bgcolor: progress > 0 ? "primary.main" : "",
+													}}
+												/>
+												{idx == gifts.length - 1 && (
+													<TimelineDot
+														color={progress > 0 ? "primary" : "grey"}
+													/>
+												)}
+											</TimelineSeparator>
+											<TimelineContent sx={{ marginTop: 4, paddingLeft: 8 }}>
+												<GiftCard
+													imageUrl={gift.image_url}
+													name={gift.name}
+													description={gift.description}
+													price={gift.price}
+													progress={progress}
+												/>
+											</TimelineContent>
+										</TimelineItem>
+									</>
+								);
+							})}
 					</Timeline>
 				</>
 			)}
