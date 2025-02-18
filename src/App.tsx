@@ -65,6 +65,17 @@ function App() {
 		}
 	}, [isLoading, gifts]);
 
+	const [isMobile, setMobile] = useState(false);
+
+	useEffect(() => {
+		function update() {
+			setMobile(window.innerWidth < 700);
+		}
+		update();
+		window.addEventListener("resize", update);
+		return () => window.removeEventListener("resize", update);
+	}, []);
+
 	return (
 		<>
 			<Box
@@ -153,13 +164,16 @@ function App() {
 													/>
 												)}
 											</TimelineSeparator>
-											<TimelineContent sx={{ marginTop: 4, paddingLeft: 8 }}>
+											<TimelineContent
+												sx={{ marginTop: 4, paddingLeft: isMobile ? 2 : 8 }}
+											>
 												<GiftCard
 													imageUrl={gift.image_url}
 													name={gift.name}
 													description={gift.description}
 													price={gift.price}
 													progress={progress}
+													isMobile={isMobile}
 												/>
 											</TimelineContent>
 										</TimelineItem>

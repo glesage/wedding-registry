@@ -1,4 +1,4 @@
-import * as React from "react";
+import { FC } from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
@@ -11,23 +11,36 @@ interface GiftCardProps {
 	description: string;
 	price: number;
 	progress: number;
+	isMobile?: boolean;
 }
 
-const GiftCard: React.FC<GiftCardProps> = ({
+const GiftCard: FC<GiftCardProps> = ({
 	imageUrl,
 	name,
 	description,
 	price,
 	progress,
+	isMobile = false,
 }) => {
-	return (
+	return isMobile ? (
+		<Card sx={{ height: 300 }}>
+			<CardMedia sx={{ height: 100 }} image={imageUrl} title={name} />
+			<CardContent>
+				<Typography variant="h5">{name}</Typography>
+				<ProgressBar target={`${price}€`} progress={progress} />
+				<Typography variant="body2" sx={{ color: "text.secondary" }}>
+					{description}
+				</Typography>
+			</CardContent>
+		</Card>
+	) : (
 		<Card
 			sx={{
 				height: 200,
 				display: "flex",
 			}}
 		>
-			<CardMedia sx={{ width: 200 }} image={imageUrl} title={name} />
+			<CardMedia sx={{ minWidth: 250 }} image={imageUrl} title={name} />
 			<CardContent sx={{ flexGrow: 1 }}>
 				<Typography variant="h5">{name}</Typography>
 				<ProgressBar target={`${price}€`} progress={progress} />
