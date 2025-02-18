@@ -18,7 +18,7 @@ import GiftCard from "./GiftCard";
 import { Tables } from "./database.types";
 
 const backgroundImage =
-	"https://uydcurfxaixdhrljgwlj.supabase.co/storage/v1/object/public/website//desktop.jpeg";
+	"https://uydcurfxaixdhrljgwlj.supabase.co/storage/v1/object/public/website//hero.jpg";
 const stripeFormUrl = "https://buy.stripe.com/test_5kA3d1bZbdeFfbGdQQ";
 
 const api =
@@ -82,21 +82,28 @@ function App() {
 				sx={{
 					backgroundImage: `url('${backgroundImage}')`,
 					backgroundSize: "cover",
+					backgroundPosition: "50% 20%",
 					height: "500px",
 					color: "white",
+					textShadow: "#676767 1px 0 30px",
+					display: "flex",
+					flexDirection: "column",
+					justifyItems: "space-between",
+					justifyContent: "space-between",
 				}}
 			>
-				<Typography variant="h3" padding={8}>
-					Liste de mariage de Clémence et Geoffroy
+				<Typography variant="h3" paddingTop={4}>
+					Liste de mariage
+					<br />
+					Clémence & Geoffroy
 				</Typography>
 				{stripeId ? (
-					<Typography variant="h5" padding={4}>
+					<Typography variant="h5" paddingBottom={4}>
 						Merci pour votre contribution 🎉
 					</Typography>
 				) : (
-					<Typography variant="h5" padding={4}>
-						Aider nous a faire un super voyage de noces au Vanuatu! Chaque étape
-						que nous attaingon nous permetra de faire quelques jours de plus.
+					<Typography variant="h5" paddingBottom={4}>
+						Aider nous a concretiser notre projet de voyage!
 					</Typography>
 				)}
 			</Box>
