@@ -17,7 +17,8 @@ import Box from "@mui/material/Box";
 import GiftCard from "./GiftCard";
 import { Tables } from "./database.types";
 
-const backgroundImage = "https://i.ibb.co/qMfzFtbP/gcm.jpg";
+const backgroundImage =
+	"https://uydcurfxaixdhrljgwlj.supabase.co/storage/v1/object/public/website//desktop.jpeg";
 const stripeFormUrl = "https://buy.stripe.com/test_5kA3d1bZbdeFfbGdQQ";
 
 const api =
@@ -70,12 +71,12 @@ function App() {
 				sx={{
 					backgroundImage: `url('${backgroundImage}')`,
 					backgroundSize: "cover",
-					height: "480px",
+					height: "500px",
 					color: "white",
 				}}
 			>
 				<Typography variant="h3" padding={8}>
-					List de mariage de Clémence et Geoffroy
+					Liste de mariage de Clémence et Geoffroy
 				</Typography>
 				{stripeId ? (
 					<Typography variant="h5" padding={4}>
