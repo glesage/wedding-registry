@@ -12,6 +12,7 @@ interface GiftCardProps {
 	price: number;
 	progress: number;
 	isMobile?: boolean;
+	isTablet?: boolean;
 }
 
 const GiftCard: FC<GiftCardProps> = ({
@@ -21,10 +22,11 @@ const GiftCard: FC<GiftCardProps> = ({
 	price,
 	progress,
 	isMobile = false,
+	isTablet = false,
 }) => {
 	return isMobile ? (
-		<Card sx={{ height: 300 }}>
-			<CardMedia sx={{ height: 100 }} image={imageUrl} title={name} />
+		<Card sx={{ height: 430 }}>
+			<CardMedia sx={{ height: 140 }} image={imageUrl} title={name} />
 			<CardContent>
 				<Typography variant="h5">{name}</Typography>
 				<ProgressBar target={`${price}€`} progress={progress} />
@@ -36,11 +38,15 @@ const GiftCard: FC<GiftCardProps> = ({
 	) : (
 		<Card
 			sx={{
-				height: 200,
+				height: 250,
 				display: "flex",
 			}}
 		>
-			<CardMedia sx={{ minWidth: 250 }} image={imageUrl} title={name} />
+			<CardMedia
+				sx={{ minWidth: isTablet ? 150 : 250 }}
+				image={imageUrl}
+				title={name}
+			/>
 			<CardContent sx={{ flexGrow: 1 }}>
 				<Typography variant="h5">{name}</Typography>
 				<ProgressBar target={`${price}€`} progress={progress} />

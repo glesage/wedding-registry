@@ -66,10 +66,12 @@ function App() {
 	}, [isLoading, gifts]);
 
 	const [isMobile, setMobile] = useState(false);
+	const [isTablet, setTablet] = useState(false);
 
 	useEffect(() => {
 		function update() {
-			setMobile(window.innerWidth < 700);
+			setMobile(window.innerWidth < 680);
+			setTablet(window.innerWidth >= 680 && window.innerWidth < 800);
 		}
 		update();
 		window.addEventListener("resize", update);
@@ -82,7 +84,7 @@ function App() {
 				sx={{
 					backgroundImage: `url('${backgroundImage}')`,
 					backgroundSize: "cover",
-					backgroundPosition: "50% 20%",
+					backgroundPosition: "50% 40%",
 					height: "500px",
 					color: "white",
 					textShadow: "#676767 1px 0 30px",
@@ -181,6 +183,7 @@ function App() {
 													price={gift.price}
 													progress={progress}
 													isMobile={isMobile}
+													isTablet={isTablet}
 												/>
 											</TimelineContent>
 										</TimelineItem>
