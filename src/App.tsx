@@ -107,8 +107,8 @@ function App() {
 					</Typography>
 				)}
 			</Box>
-			<Box sx={{ maxWidth: contentWidth, margin: "auto", marginTop: 4 }}>
-				<Typography variant="h5" align="left" paddingTop={2}>
+			<Box sx={{ maxWidth: contentWidth, margin: "auto", padding: 4 }}>
+				<Typography variant="h5" align="left">
 					Une aventure romantique et inoubliable
 				</Typography>
 				<Typography variant="body1" align="justify">
@@ -120,10 +120,9 @@ function App() {
 					Sur le Vanuatu
 				</Typography>
 				<iframe
-					width={contentWidth}
 					height="450"
-					style={{ border: 0 }}
-					src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBjtF4aJ67znBG0Ue7806UZRi1UQ0A-1Pw&q=Vanuatu&zoom=5"
+					style={{ border: 0, paddingTop: 2, paddingBottom: 2 }}
+					src="https://www.google.com/maps/embed/v1/view?key=AIzaSyBjtF4aJ67znBG0Ue7806UZRi1UQ0A-1Pw&zoom=5&center=-15.3767,166.9592"
 				></iframe>
 				<Typography variant="body1" align="justify">
 					Le Vanuatu, situé dans le Pacifique Sud, est un archipel de 83 îles
