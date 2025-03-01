@@ -9,7 +9,7 @@
 		"preci": "rm -rf node_modules",
 		"ci": "yarn install --frozen-lockfile",
 		"dev": "vite",
-		"build": "tsc -b && vite build && echo root > ./dist/test.html && echo assets > ./dist/assets/test.html",
+		"build": "tsc -b && vite build",
 		"lint": "eslint .",
 		"preview": "vite preview"
 	},
