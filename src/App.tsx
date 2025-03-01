@@ -10,11 +10,13 @@ import TimelineSeparator from "@mui/lab/TimelineSeparator";
 import TimelineConnector from "@mui/lab/TimelineConnector";
 import TimelineContent from "@mui/lab/TimelineContent";
 import TimelineDot from "@mui/lab/TimelineDot";
+import { ThemeProvider, CssBaseline } from "@mui/material";
 
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 
 import GiftCard from "./GiftCard";
+import theme from "./theme";
 import { Tables } from "./database.types";
 
 const backgroundImage =
@@ -83,7 +85,8 @@ function App() {
 	const isMobileOrTablet = isMobile || isTablet;
 
 	return (
-		<>
+		<ThemeProvider theme={theme}>
+			<CssBaseline />
 			<Box
 				sx={{
 					backgroundImage: `url('${backgroundImage}')`,
@@ -213,16 +216,17 @@ function App() {
 										<TimelineItem>
 											<TimelineSeparator>
 												<TimelineDot
-													color={progress > 0 ? "primary" : "grey"}
+													color={progress > 0 ? "primary" : "secondary"}
 												/>
 												<TimelineConnector
 													sx={{
-														bgcolor: progress > 0 ? "primary.main" : "",
+														bgcolor:
+															progress > 0 ? "primary.main" : "secondary.main",
 													}}
 												/>
 												{idx == gifts.length - 1 && (
 													<TimelineDot
-														color={progress > 0 ? "primary" : "grey"}
+														color={progress > 0 ? "primary" : "secondary"}
 													/>
 												)}
 											</TimelineSeparator>
@@ -246,7 +250,7 @@ function App() {
 					</Timeline>
 				</>
 			)}
-		</>
+		</ThemeProvider>
 	);
 }
 
