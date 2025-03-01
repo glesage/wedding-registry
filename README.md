@@ -5,4 +5,4 @@ yarn
 yarn dev
 ```
 
-See it live with GithubPages https://geoffroylesage.com/wedding-registry/
+See it live with GithubPages https://geoffroylesage.com
