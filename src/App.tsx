@@ -80,14 +80,16 @@ function App() {
 		return () => window.removeEventListener("resize", update);
 	}, []);
 
+	const isMobileOrTablet = isMobile || isTablet;
+
 	return (
 		<>
 			<Box
 				sx={{
 					backgroundImage: `url('${backgroundImage}')`,
 					backgroundSize: "cover",
-					backgroundPosition: `50% ${isMobile || isTablet ? "20%" : "35%"}`,
-					height: "500px",
+					backgroundPosition: `50% ${isMobileOrTablet ? "20%" : "35%"}`,
+					height: `${isMobileOrTablet ? "300px" : "500px"}`,
 					color: "white",
 					textShadow: "#676767 1px 0 30px",
 					display: "flex",
@@ -96,11 +98,22 @@ function App() {
 					justifyContent: "space-between",
 				}}
 			>
-				<Typography variant="h3" paddingTop={4}>
-					Liste de mariage
-					<br />
-					Clémence & Geoffroy
-				</Typography>
+				{isMobileOrTablet ? (
+					<Typography variant="h3" paddingTop={4}>
+						Liste de mariage
+					</Typography>
+				) : (
+					<Typography variant="h3" paddingTop={4}>
+						Liste de mariage
+						<br />
+						Clémence & Geoffroy
+					</Typography>
+				)}
+				{isMobileOrTablet && (
+					<Typography variant="h4" paddingBottom={4}>
+						Clémence & Geoffroy
+					</Typography>
+				)}
 				{stripeId && (
 					<Typography variant="h5" paddingBottom={4}>
 						Merci pour votre contribution 🎉
@@ -122,10 +135,10 @@ function App() {
 				<iframe
 					height="450"
 					width="100%"
-					style={{ border: 0, paddingTop: 2, paddingBottom: 2 }}
 					src="https://www.google.com/maps/embed/v1/view?key=AIzaSyBjtF4aJ67znBG0Ue7806UZRi1UQ0A-1Pw&zoom=5&center=-15.3767,166.9592"
+					style={{ border: 0, paddingTop: 2, paddingBottom: 2, height: 300 }}
 				></iframe>
-				<Typography variant="body1" align="justify">
+				<Typography variant="body1" align="justify" paddingTop={2}>
 					Le Vanuatu, situé dans le Pacifique Sud, est un archipel de 83 îles
 					volcaniques habitées depuis plus de 3 000 ans par les peuples
 					mélanésiens. Ancienne colonie franco-britannique sous le nom de
@@ -133,16 +146,16 @@ function App() {
 					processus marqué par des tensions politiques et l’éphémère «
 					République de Tanna », un mouvement séparatiste soutenu par des colons
 					français.
-				</Typography>
-				<Typography variant="body1" align="justify">
+					<br />
+					<br />
 					Sa population parle le bislama ainsi que l’anglais et le français.
 					L'économie repose principalement sur l'agriculture, la pêche et le
 					tourisme. Le Vanuatu est également connu pour ses traditions
 					culturelles fortes, comme le rituel du saut du Gaul sur l’île de
 					Pentecôte, et pour ses sites naturels exceptionnels, notamment le
 					volcan actif du Mont Yasur.
-				</Typography>
-				<Typography variant="body1" align="justify">
+					<br />
+					<br />
 					Enfin, malgré sa petite taille, le Vanuatu a été classé à plusieurs
 					reprises parmi les pays les plus heureux du monde selon l’Happy Planet
 					Index, en raison de son mode de vie simple, de ses liens

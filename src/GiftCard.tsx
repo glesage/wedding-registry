@@ -25,8 +25,8 @@ const GiftCard: FC<GiftCardProps> = ({
 	isTablet = false,
 }) => {
 	return isMobile ? (
-		<Card sx={{ height: 430 }}>
-			<CardMedia sx={{ height: 140 }} image={imageUrl} title={name} />
+		<Card sx={{ height: 400 }}>
+			<CardMedia sx={{ height: 160 }} image={imageUrl} title={name} />
 			<CardContent>
 				<Typography variant="h5">{name}</Typography>
 				<ProgressBar target={`${price}€`} progress={progress} />
