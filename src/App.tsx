@@ -84,7 +84,7 @@ function App() {
 				sx={{
 					backgroundImage: `url('${backgroundImage}')`,
 					backgroundSize: "cover",
-					backgroundPosition: "50% 40%",
+					backgroundPosition: `50% ${isMobile || isTablet ? "20%" : "40%"}`,
 					height: "500px",
 					color: "white",
 					textShadow: "#676767 1px 0 30px",
