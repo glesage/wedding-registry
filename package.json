@@ -4,7 +4,7 @@
 	"version": "0.0.0",
 	"type": "module",
 	"license": "MIT",
-	"homepage": "https://glesage.github.io/wedding-registry/",
+	"homepage": "https://geoffroylesage.com/wedding-registry/",
 	"scripts": {
 		"preci": "rm -rf node_modules",
 		"ci": "yarn install --frozen-lockfile",
