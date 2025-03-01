@@ -24,6 +24,8 @@ const stripeFormUrl = "https://buy.stripe.com/test_5kA3d1bZbdeFfbGdQQ";
 const api =
 	"https://uydcurfxaixdhrljgwlj.supabase.co/functions/v1/get-gifts-and-contributions";
 
+const contentWidth = 800;
+
 type EdgeRes = {
 	gifts: Tables<"Gifts">[];
 	contributions: Tables<"Contributions">[];
@@ -71,7 +73,7 @@ function App() {
 	useEffect(() => {
 		function update() {
 			setMobile(window.innerWidth < 680);
-			setTablet(window.innerWidth >= 680 && window.innerWidth < 800);
+			setTablet(window.innerWidth >= 680 && window.innerWidth < contentWidth);
 		}
 		update();
 		window.addEventListener("resize", update);
@@ -84,7 +86,7 @@ function App() {
 				sx={{
 					backgroundImage: `url('${backgroundImage}')`,
 					backgroundSize: "cover",
-					backgroundPosition: `50% ${isMobile || isTablet ? "20%" : "40%"}`,
+					backgroundPosition: `50% ${isMobile || isTablet ? "20%" : "35%"}`,
 					height: "500px",
 					color: "white",
 					textShadow: "#676767 1px 0 30px",
@@ -99,15 +101,53 @@ function App() {
 					<br />
 					Clémence & Geoffroy
 				</Typography>
-				{stripeId ? (
+				{stripeId && (
 					<Typography variant="h5" paddingBottom={4}>
 						Merci pour votre contribution 🎉
 					</Typography>
-				) : (
-					<Typography variant="h5" paddingBottom={4}>
-						Aider nous a concretiser notre projet de voyage!
-					</Typography>
 				)}
+			</Box>
+			<Box sx={{ maxWidth: contentWidth, margin: "auto", marginTop: 4 }}>
+				<Typography variant="h5" align="left" paddingTop={2}>
+					Une aventure romantique et inoubliable
+				</Typography>
+				<Typography variant="body1" align="justify">
+					Votre participation nous permettra de concrétiser notre lune de miel
+					rêvée au Vanuatu. Entre paysages volcaniques, traditions ancestrales
+					et eaux cristallines… que l’aventure commence !
+				</Typography>
+				<Typography variant="h5" align="left" paddingTop={2}>
+					Sur le Vanuatu
+				</Typography>
+				<iframe
+					width={contentWidth}
+					height="450"
+					style={{ border: 0 }}
+					src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBjtF4aJ67znBG0Ue7806UZRi1UQ0A-1Pw&q=Vanuatu&zoom=5"
+				></iframe>
+				<Typography variant="body1" align="justify">
+					Le Vanuatu, situé dans le Pacifique Sud, est un archipel de 83 îles
+					volcaniques habitées depuis plus de 3 000 ans par les peuples
+					mélanésiens. Ancienne colonie franco-britannique sous le nom de
+					Nouvelles-Hébrides, il a obtenu son indépendance en 1980 après un long
+					processus marqué par des tensions politiques et l’éphémère «
+					République de Tanna », un mouvement séparatiste soutenu par des colons
+					français.
+				</Typography>
+				<Typography variant="body1" align="justify">
+					Sa population parle le bislama ainsi que l’anglais et le français.
+					L'économie repose principalement sur l'agriculture, la pêche et le
+					tourisme. Le Vanuatu est également connu pour ses traditions
+					culturelles fortes, comme le rituel du saut du Gaul sur l’île de
+					Pentecôte, et pour ses sites naturels exceptionnels, notamment le
+					volcan actif du Mont Yasur.
+				</Typography>
+				<Typography variant="body1" align="justify">
+					Enfin, malgré sa petite taille, le Vanuatu a été classé à plusieurs
+					reprises parmi les pays les plus heureux du monde selon l’Happy Planet
+					Index, en raison de son mode de vie simple, de ses liens
+					communautaires forts et de son respect de la nature.
+				</Typography>
 			</Box>
 			{isLoading ? (
 				<div>Chargement du voyage...</div>
@@ -128,7 +168,7 @@ function App() {
 								flex: 0,
 								padding: 0,
 							},
-							maxWidth: 800,
+							maxWidth: contentWidth,
 							margin: "auto",
 						}}
 					>
