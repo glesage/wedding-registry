@@ -103,11 +103,11 @@ function App() {
 			>
 				{isMobileOrTablet ? (
 					<Typography variant="h3" paddingTop={4}>
-						Liste de mariage
+						Contribuez à notre aventure de mariage
 					</Typography>
 				) : (
 					<Typography variant="h3" paddingTop={4}>
-						Liste de mariage
+						Contribuez à notre aventure de mariage
 						<br />
 						Clémence & Geoffroy
 					</Typography>
@@ -125,11 +125,18 @@ function App() {
 			</Box>
 			<Box sx={{ maxWidth: contentWidth, margin: "auto", padding: 4 }}>
 				<Typography variant="h5" align="left">
-					Une aventure romantique et inoubliable
+					Une aventure authentique et romantique
 				</Typography>
 				<Typography variant="body1" align="justify">
-					Votre participation nous permettra de concrétiser notre lune de miel
-					rêvée au Vanuatu. Entre paysages volcaniques, traditions ancestrales
+					Notre plus beau cadeau est de vous revoir cet été ! Et si cela n’est
+					pas possible, un petit message suffira à nous rendre heureux. Il n’y a
+					vraiment aucune obligation de participer financièrement.
+					<br />
+					Si vous souhaitez toutefois nous accompagner symboliquement dans notre
+					aventure, comme nous sommes déjà bien gâtés sur le plan matériel, nous
+					vous proposons de vous associer a notre voyage de mariage! Chaque
+					contribution nous permettra d’avancer dans les étapes de notre rêve:
+					visiter le Vanuatu. Entre paysages volcaniques, traditions ancestrales
 					et eaux cristallines… que l’aventure commence !
 				</Typography>
 				<Typography variant="h5" align="left" paddingTop={2}>
@@ -138,8 +145,8 @@ function App() {
 				<iframe
 					height="450"
 					width="100%"
-					src="https://www.google.com/maps/embed/v1/view?key=AIzaSyBjtF4aJ67znBG0Ue7806UZRi1UQ0A-1Pw&zoom=5&center=-15.3767,166.9592"
 					style={{ border: 0, paddingTop: 2, paddingBottom: 2, height: 300 }}
+					src="https://www.google.com/maps/embed/v1/view?key=AIzaSyDZ1Snxnrz8ImJlZUd7yNWr2bbpfT5QypI&zoom=5&center=-15.3767,166.9592"
 				></iframe>
 				<Typography variant="body1" align="justify" paddingTop={2}>
 					Le Vanuatu, situé dans le Pacifique Sud, est un archipel de 83 îles
