@@ -21,7 +21,7 @@ import { Tables } from "./database.types";
 
 const backgroundImage =
 	"https://uydcurfxaixdhrljgwlj.supabase.co/storage/v1/object/public/website//hero.jpg";
-const stripeFormUrl = "https://buy.stripe.com/test_5kA3d1bZbdeFfbGdQQ";
+const stripeFormUrl = "https://buy.stripe.com/5kAdRG1aI94i9qwdQQ";
 
 const api =
 	"https://uydcurfxaixdhrljgwlj.supabase.co/functions/v1/get-gifts-and-contributions";
