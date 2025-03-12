@@ -146,7 +146,7 @@ function App() {
 					height="450"
 					width="100%"
 					style={{ border: 0, paddingTop: 2, paddingBottom: 2, height: 300 }}
-					src="https://www.google.com/maps/embed/v1/view?key=AIzaSyDZ1Snxnrz8ImJlZUd7yNWr2bbpfT5QypI&zoom=5&center=-15.3767,166.9592"
+					src="https://www.google.com/maps/embed/v1/view?key=AIzaSyBjtF4aJ67znBG0Ue7806UZRi1UQ0A-1Pw&zoom=5&center=-15.3767,166.9592"
 				></iframe>
 				<Typography variant="body1" align="justify" paddingTop={2}>
 					Le Vanuatu, situé dans le Pacifique Sud, est un archipel de 83 îles
